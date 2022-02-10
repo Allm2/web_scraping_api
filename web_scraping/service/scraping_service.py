@@ -5,7 +5,10 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 
-def colhendo_dados():
+def colhendo_dados(url: str):
+
+    print('Site -> ', url)
+
     # especifique o URL
     wiki = "https://pt.wikipedia.org/wiki/Lista_de_capitais_do_Brasil"
 
@@ -13,7 +16,7 @@ def colhendo_dados():
     page = urllib.request.urlopen(wiki)
 
     # Parse o html na variável 'page' e armazene-o no formato BeautifulSoup
-    soup = BeautifulSoup(page, 'html5lib')
+    soup = BeautifulSoup(page, 'html.parser')
 
     # Insira a tag <li> e adicione sua classe
     list_item = soup.find('li', attrs={'class': 'toclevel-2 tocsection-26'})

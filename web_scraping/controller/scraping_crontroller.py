@@ -1,7 +1,4 @@
 from flask import Blueprint, abort, jsonify, request
-
-# from web_scraping.service.classification_service import ClassificationService
-
 from web_scraping.service.scraping_service import colhendo_dados
 
 web_scraping = Blueprint('web_scraping', __name__)
@@ -25,15 +22,12 @@ def scraping_data():
     for value in request.json:
         dados.append(value)
 
-
     try:
-        print(request.json)
 
-        colhendo_dados()
-
-
+        colhendo_dados(request.json['url'])
 
         response = "Sucesso"
+
         return jsonify(response), 200
     except ValueError:
         return abort(401)
