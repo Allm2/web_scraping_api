@@ -3,7 +3,6 @@ import os
 
 from web_scraping import application
 
-
 def start_server():
     port = int(os.environ.get('PORT', 9000))
     logging.getLogger('web_scraping.__main__').info(
