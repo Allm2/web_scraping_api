@@ -27,10 +27,9 @@ def colhendo_dados():
         else:
             break
 
-    # collection_name = get_connection()['list_announcement']
-    #
-    # collection_name.insert_many(all_ads_data)
-    print(len(all_ads_data))
+    collection_name = get_connection()['list_announcement']
+
+    collection_name.insert_many(all_ads_data)
 
 
 def get_soup(url):
@@ -39,7 +38,6 @@ def get_soup(url):
     page = urllib.request.urlopen(request)
     # Parse o html na variável 'page' e devolva-o no formato BeautifulSoup
     return BeautifulSoup(page, 'html.parser')
-
 
 
 def colhendo_dados_anuncio(url):
